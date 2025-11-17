@@ -10,12 +10,10 @@
 
 
     <properties>
-        <quarkus.platform.version>3.20.3.redhat-00006</quarkus.platform.version>
+        <quarkus.platform.version>3.29.0</quarkus.platform.version>
         <camel-quarkus.platform.version>${quarkus.platform.version}</camel-quarkus.platform.version>
 
-       <!-- <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>-->
-        <quarkus.platform.group-id>com.redhat.quarkus.platform</quarkus.platform.group-id>
-
+        <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
         <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
         <camel-quarkus.platform.group-id>${quarkus.platform.group-id}</camel-quarkus.platform.group-id>
         <camel-quarkus.platform.artifact-id>quarkus-camel-bom</camel-quarkus.platform.artifact-id>
@@ -40,22 +38,21 @@
         <dependencies>
             <!-- Import BOM -->
             <dependency>
-                <groupId>com.redhat.quarkus.platform</groupId>
-                <artifactId>quarkus-bom</artifactId>
+                <groupId>${quarkus.platform.group-id}</groupId>
+                <artifactId>${quarkus.platform.artifact-id}</artifactId>
                 <version>${quarkus.platform.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>com.redhat.quarkus.platform</groupId>
-                <artifactId>quarkus-camel-bom</artifactId>
-                <version>${quarkus.platform.version}</version>
+                <groupId>${camel-quarkus.platform.group-id}</groupId>
+                <artifactId>${camel-quarkus.platform.artifact-id}</artifactId>
+                <version>${camel-quarkus.platform.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
-
     <dependencies>
         <dependency>
             <groupId>org.apache.camel.quarkus</groupId>
@@ -64,6 +61,10 @@
         <dependency>
             <groupId>org.apache.camel.quarkus</groupId>
             <artifactId>camel-quarkus-amqp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel.quarkus</groupId>
+            <artifactId>camel-quarkus-management</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.camel.quarkus</groupId>
@@ -92,6 +93,11 @@
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-rest</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.quarkiverse.messaginghub</groupId>
+            <artifactId>quarkus-pooled-jms</artifactId>
         </dependency>
         <!-- Test -->
         <dependency>
